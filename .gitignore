@@ -1,0 +1,15 @@
+venv310/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.vscode/
+.idea/
+.DS_Store
+.env
+.env.*
+*.env
+*.log
