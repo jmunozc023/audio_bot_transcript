@@ -19,9 +19,7 @@ def extract_embeddings_and_texts(audio_file: str, sample_rate: int, segments: Se
             continue
 
         mean = float(np.mean(chunk))
-        std = float(np.std(chunk))
-        energy = float(np.mean(np.square(chunk)))
-        embeddings.append([mean, std, energy])
+        embeddings.append([mean])
         texts.append(seg.text.strip())
     return embeddings, texts
 
@@ -34,7 +32,7 @@ def cluster_speakers(embeddings: Sequence[Sequence[float]], n_speakers: int) -> 
             labels[i] = i % n_speakers
         return labels
     print("Clustering speakers...")
-    model = KMeans(n_clusters=n_speakers, random_state=42, n_init=10)
+    model = KMeans(n_clusters=n_speakers)
     return model.fit_predict(embeddings)
 
 def build_speaker_transcript(labels: Iterable[int], texts: Iterable[str]) -> str:

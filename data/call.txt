@@ -1,107 +1,128 @@
-Here is the rewritten transcript with the roles identified:
+Here’s the rewritten transcript with the speakers identified:
 
-Customer: Hello, my name is Steven, I'm calling you from the Finance Department of the online company. You were sticking with Michael before, and your manager is Mr. Omar, correct?
-
-Agent: Okay.
-
-Customer: All right, so yeah, I was calling you to help you because we were trying to find a solution and the way to make very quick and easy withdrawal of your money on the platform back to your bank. So I think we finally found an option, and that's why I'm calling you to help you with that. So it will just take another 5-10 minutes of the time. If you're available, I would like to guide you through the step and see if you can work out together. So are you available for me to help you with that?
-
-Agent: Yeah.
-
-Customer: Okay. Wonderful. Now, I will ask you, please open AnyDesk and give me the ID on your computer.
-
-Agent: Okay. And the numbers? One, five, and five.
-
-Customer: Okay. Okay.
-
-Agent: I will help you over here. Okay. Okay.
-
-Customer: Okay, I will help you over here, okay? Okay, I just click here.
-
-Agent: Of course not for them.
-
-Customer: Okay. Now the name of the app is like this. It's a very colorful website. So, they will try to verify you. I'm not sure if the phone is required. We will try to do it on the computer.
-
-Agent: We will do it on the phone, okay?
-
-Customer: Okay. Let me do it for you.
-
-Agent: Let me use your mouse.
-
-Customer: Yeah, we can do it only on the phone. Which phone are you using?
-
-Agent: Big phone.
-
-Agent: Big phone. 
-
-Customer: Big phone.
-
-Customer: Okay, give me one second. I can just hang on the line.
-
-Agent: Okay. Okay. Okay. Okay. Okay, please do it for us.
-
-Agent: Okay. Okay. One.
-
-Customer: Okay.
-
-Agent: Okay. Okay. Okay. Okay. Okay. Okay.
-
-Customer: Turn on the phone.
-
-Agent: Okay. If you can do something, can you download AnyDesk on your phone? Try to download AnyDesk on your phone and we will try to do it together on your phone.
-
-Customer: You can download AnyDesk on your phone. You can download AnyDesk on your phone and we will try to download AnyDesk on your phone. You can download AnyDesk on your phone and we will try to download AnyDesk on your phone.
-
-Agent: When you open it, you can download AnyDesk on your phone. You can download AnyDesk on your phone and we will try to download AnyDesk on your phone.
-
-Customer: You can download AnyDesk on your phone and we will try to download AnyDesk on your phone. You can download AnyDesk on your phone and we will try to download AnyDesk on your phone.
-
-Agent: You can download AnyDesk on your phone and we will try to download AnyDesk on your phone. 
-
-Customer: I have downloaded AnyDesk already.
-
-Agent: I want you to open it please and give me the number.
-
-Customer: 498400.
-
-Agent: Okay, you're going to see a pop-up in the same way. Just accept the boxes, and then click on Accept and start now.
-
-Customer: Start now.
-
-Agent: Just one moment.
-
-Customer: Start now. What?
-
-Agent: Okay. Now click on this blue circle in the middle of the system. One more time, one more time, and one more time. Click on OK. Now click on the top left corner of the arrow that looks to the left. Now look in the middle to the right, you have three dots, three white dots. Can you click on them?
-
-Agent: Permission? You need to secure the account from the disclaimer. Yes, very good. Click on this possible scan, so we can cover that. And click on full access in the middle, which is full access.
-
-Customer: Okay, very good. Now I'm going to help you. So I will help you to download this Cash App application on your phone, and we will try to verify it on your phone.
-
-Agent: Okay, I think we need to scan it from the computer.
-
-Customer: Go to your computer, I'm going to open the camera right now.
-
-Agent: Oh, no, from the computer, yeah?
-
-Customer: From the computer?
-
-Agent: Are you in front of your computer right now?
-
-Customer: Yeah.
-
-Agent: Okay, now put the camera in front of the computer, please. 
-
-Customer: Okay, let me finish.
-
-Agent: Okay, and let me open the QR code that is available in your console.
-
-Customer: Wow. Are you in Canada right now?
-
-Agent: What? Why wouldn't it be available? Is it because of the VPN or something?
-
-Customer: I don't know.
-
-Agent: Okay, all right. No problem. No problem. Let's look like this. Let me click it and I'll get back to you. Okay? Let me double check it on my side.
-
-Customer: All right, thank you. Thank you so much. Right now. Bye.
+**Agent:** Hello, my name is Steven, I'm calling you from the Finance Department of the online company.  
+**Agent:** You were sticking with Michael before, and your manager is Mr. Omar, correct?  
+**Agent:** Okay.  
+**Agent:** All right, so yeah, I was calling you to help you because we were trying to find a solution and the way to make a very quick and easy withdrawal of your money on the platform back to your bank.  
+**Agent:** So I think we finally found an option, and that's why I'm calling you to help you with that.  
+**Customer:** So it will just take another 5-10 minutes of the time.  
+**Agent:** If you're available, I would like to guide you through the step and see if we can work it out together.  
+**Customer:** So are you available for me to help you with that?  
+**Agent:** Yeah.  
+**Agent:** Okay.  
+**Agent:** Wonderful.  
+**Customer:** Now, I will ask you, please open AnyDesk and give me the AnyDesk ID on your computer.  
+**Agent:** Okay.  
+**Agent:** And the numbers?  
+**Agent:** One, five, and five.  
+**Agent:** Okay.  
+**Customer:** Okay.  
+**Customer:** All right, we'll help you over here, okay?  
+**Agent:** Okay.  
+**Agent:** Okay.  
+**Agent:** Okay.  
+**Customer:** Okay.  
+**Customer:** Okay.  
+**Agent:** Okay.  
+**Agent:** Now, the name of the app is like this. It's a very colorful website, so they will try to verify you. I'm not sure if the phone is required, but we will try to do it on the computer.  
+**Agent:** Okay.  
+**Customer:** Okay.  
+**Agent:** Let me do it for you. Here, let me use your mouse.  
+**Agent:** Yeah, we can do it only on the phone.  
+**Customer:** Which phone are you using?  
+**Agent:** Pick up.  
+**Agent:** Pick up.  
+**Agent:** Pick up.  
+**Agent:** Pick up.  
+**Customer:** Pick up.  
+**Agent:** Yeah.  
+**Agent:** Okay.  
+**Customer:** Give me one second.  
+**Agent:** I'll hang it on the line.  
+**Customer:** Okay.  
+**Customer:** Okay.  
+**Agent:** There we are.  
+**Customer:** Let me ask you. Your phone, the one you said you are using, pick up. Is that an Android?  
+**Agent:** Yes, it's Android.  
+**Agent:** Okay.  
+**Agent:** Let me tell you if you can do something. Can you download AnyDesk on your phone?  
+**Agent:** Try to download AnyDesk on your phone, and we will try to do it together on your phone.  
+**Customer:** Okay.  
+**Agent:** Okay.  
+**Agent:** And when you open it, if you want to use your phone, please press the number.  
+**Agent:** Please use the phone.  
+**Customer:** Okay.  
+**Customer:** One, one, zero, nine.  
+**Agent:** 185, eight, eight, six, eight, eight.  
+**Customer:** Okay.  
+**Customer:** Okay.  
+**Customer:** Okay.  
+**Agent:** You can see a checkbox, please accept them.  
+**Customer:** Yeah?  
+**Customer:** Put a check in the boxes, and then click on accept.  
+**Customer:** On the bottom left, you should see like a small box.  
+**Customer:** On the bottom left, you should see like a small boxes that you can put a checkmark there. And then click on start now.  
+**Agent:** You should click on start now.  
+**Customer:** And what do you see on the phone?  
+**Agent:** You should see like this.  
+**Agent:** Is there a number?  
+**Customer:** No, it is fine for you.  
+**Customer:** Yeah, it's me, but it's not showing me connected. I think do you see your icon? It says choose one to share.  
+**Agent:** Okay, you choose what's the chance to say.  
+**Customer:** I see, all right.  
+**Agent:** Because of, yeah, you have the Pixel one. We cannot share the Pixel.  
+**Agent:** Do you have any other corner on this one?  
+**Customer:** I have a Samsung.  
+**Customer:** Yes, I'm sorry. It would be better.  
+**Agent:** Can you download Anything on your Samsung phone? Because Pixel is allowed there only Samsung and Motorola.  
+**Agent:** Can you take the phone too?  
+**Customer:** Sorry.  
+**Customer:** I will take my phone to my daughter because she's using...  
+**Customer:** That's what we have here.  
+**Customer:** Oh, I will try to be one person on the phone.  
+**Agent:** Oh.  
+**Customer:** You're watching other people?  
+**Agent:** Sorry.  
+**Customer:** Yeah, I just got somebody's daughter.  
+**Agent:** Okay, hello?  
+**Customer:** Yeah, I'll have to go; I will download the app. Thank you.  
+**Agent:** Yeah.  
+**Customer:** I have it downloaded again.  
+**Agent:** You...  
+**Customer:** AnyDesk on the Samsung phone right now. I want you to open it please and give me the numbers.  
+**Customer:** One, zero-three-seven, four-nine-eight, four-zero-zero.  
+**Agent:** Okay, you're gonna see a pop-up. You need to, same way, just accept the boxes and then click on accept and start now.  
+**Customer:** You...  
+**Customer:** Right now.  
+**Customer:** Just one moment.  
+**Customer:** You...  
+**Customer:** What?  
+**Agent:** You can...  
+**Agent:** You say I'm the assistant.  
+**Agent:** Okay, now click on this blue circle in the middle of the city.  
+**Customer:** One more time, one more time.  
+**Customer:** And one more time.  
+**Agent:** Click on okay; now click on the top left corner, the arrow that looks to the left.  
+**Agent:** Now look in the middle to the right; you have three dots, three white dots. Can you click on them?  
+**Agent:** Permission.  
+**Agent:** We need to secure the account from the disclaimer. Yes, very good, click on this possible scam so we can cover that and click on full access in the middle which is full access.  
+**Agent:** Okay, very good, now I'm gonna help you.  
+**Agent:** So I will help you to download this cash app application on your phone, and we will try to verify it on your phone, okay?  
+**Customer:** Okay.  
+**Agent:** Okay, I think we need to scan it. When it's scanning from the computer, go to your computer. I'm gonna open the camera right now.  
+**Agent:** No, no, from the computer. Yeah, from the computer.  
+**Agent:** Are you in front of your computer right now?  
+**Customer:** Yeah, okay, now put the camera in front of the computer, please.  
+**Customer:** Okay, let me finish, okay, and let me open the QR.  
+**Customer:** Okay.  
+**Customer:** Not available in your console.  
+**Customer:** Wow. Are you in Canada right now?  
+**Agent:** What? Why wouldn't it be available?  
+**Agent:** Maybe because...  
+**Customer:** I don't know, yeah, even if I download it, there's some apps it's like this.  
+**Agent:** Wow, is it like you have a VPN or something?  
+**Customer:** I...  
+**Customer:** I don't know.  
+**Agent:** Okay, all right, no problem, no problem then; let's look like this. Let me click it, and I'll get back to you.  
+**Agent:** Okay, let me double-check it on my side. All right. Thank you.  
+**Customer:** Thank you so much.
