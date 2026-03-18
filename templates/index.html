@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audio bot - Call Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}" />
+  </head>
+  <body>
+    <main class="page">
+      <h1 class="page-title">Audio bot - Call Center</h1>
+
+      <section class="card card-gap">
+        <h2 class="section-title">Realizar pregunta</h2>
+        <div class="question-row">
+          <input
+            type="text"
+            id="question"
+            placeholder="Haz tu pregunta..."
+            class="text-input"
+          />
+          <button onclick="ask()" class="btn btn-primary">
+            Enviar
+          </button>
+        </div>
+        <p class="result-label"><strong>Respuesta:</strong></p>
+        <p id="response" class="response-text"></p>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Ver transcript</h2>
+        <button onclick="viewTranscript()" class="btn btn-accent">
+          Cargar transcript
+        </button>
+        <pre id="transcript" class="transcript-box"></pre>
+      </section>
+    </main>
+
+    <script>
+      async function ask() {
+        const question = document.getElementById("question").value.trim();
+        if (!question) {
+          document.getElementById("response").innerText = "Escribe una pregunta primero.";
+          return;
+        }
+
+        const res = await fetch(`/ask?q=${encodeURIComponent(question)}`);
+        const data = await res.json();
+
+        if (!res.ok) {
+          document.getElementById("response").innerText = data.error || "Error al consultar.";
+          return;
+        }
+
+        document.getElementById("response").innerText = data.response || "Sin respuesta.";
+      }
+
+      async function viewTranscript() {
+        const res = await fetch("/transcript");
+        const data = await res.json();
+
+        if (!res.ok) {
+          document.getElementById("transcript").innerText = data.error || "No fue posible cargar el transcript.";
+          return;
+        }
+
+        document.getElementById("transcript").innerText = data.transcript || "Transcript vacio.";
+      }
+    </script>
+  </body>
+</html>
