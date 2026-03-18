@@ -8,7 +8,7 @@ def relabel_speakers_with_llm(client: OpenAI, llm_model: str, transcript: str) -
     print("Identifying Agent vs Customer...")
 
     prompt = ("The following call transcript contains two speakers: Speaker_0 and Speaker_1.\n\n"
-              "Identify wich one is the Agent and which one is the Customer. \n"
+              "Identify which one is the Agent and which one is the Customer. \n"
               "Rewrite the transcript replacing Speaker_0 and Speaker_1.\n\n"
               f"Transcript:\n{transcript}")
     
