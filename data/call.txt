@@ -1,85 +1,307 @@
 **Transcript:**
 
-**Agent:** Hello, my name is Steven, I'm calling you from the Finance Department of the online company. You were sticking with Michael before, and your manager is Mr. Omar, correct?
-
-**Customer:** Okay.
-
-**Agent:** All right, so yeah, I was calling you to help you because we were trying to find a solution and the way to make very quick and easy withdrawal of your money on the platform back to your bank. So I think we finally found an option, and that's why I'm calling you to help you with that. It will just take another 5-10 minutes of your time. If you're available, I would like to guide you through the steps and see if we can work it out together. So are you available for me to help you with that?
-
-**Customer:** Yeah.
-
-**Agent:** Wonderful. Now, I will ask you, please open AnyDesk and give me the connection ID on your computer.
-
-**Customer:** Okay.
-
-**Agent:** And the numbers?
-
-**Customer:** One, five, and five.
-
-**Agent:** Can I take over?
-
-**Customer:** Okay.
-
-**Agent:** All right, we'll help you over here.
-
-**Customer:** Okay.
-
-**Agent:** Okay. Now, the name of the app is like this. It's a very colorful website. They will try to verify you. I'm not sure if the phone is required. They will try to do it on the computer. We will do it on the phone. Okay. Let me do it for you.
-
-**Agent:** Okay. Let me use your mouse. Yeah. We can do it only on the phone. Which phone are you using?
-
-**Customer:** Okay. Okay. Give me one second. I'll hang it on the line. 
-
-**Agent:** Let me ask you about your phone. The one you said you are using is a fixed phone. Is it an Android?
-
-**Customer:** Yes. It's an Android. 
-
-**Agent:** Okay. Let me tell you if you can do something. Can you download AnyDesk on your phone? Try to download AnyDesk on your phone, and we will try to do it together on your phone.
-
-**Customer:** Okay. And when you open it, tell me the numbers, please, on your phone.
-
-**Agent:** One, one, zero, nine, one, eight, five, eight, five, nine.
-
-**Customer:** Is that a checkbox? Please, accept them. Yeah. Put a check in the boxes. And then click on accept.
-
-**Agent:** On the bottom left, you should see small boxes, which you can put a checkmark in, and then click on start now. 
-
-**Customer:** Yeah. 
-
-**Agent:** Okay. And what do you see on the phone?
-
-**Customer:** The phone. Is this the phone?
-
-**Customer:** Is that the phone?
-
-**Customer:** Is that the phone?
-
-**Customer:** Okay. You choose what to see. Okay. I see. All right. Because of, yeah, you have the Pixel one. We cannot share the Pixel phone.
-
-**Agent:** Do you have any other phone or only this one?
-
-**Customer:** Can you download AnyDesk on your Samsung phone? Because Pixels are not allowed there. Only Samsung and Motorola. Sorry. I will take my phone to my daughter because she is using it.
-
-**Agent:** Oh, sorry. Okay. Hello. Yeah. I will download the...
-
-**Customer:** Oh, back here. I have already downloaded AnyDesk on the Samsung phone, right? Now I want you to open it please.
-
-**Customer:** One, zero, three, seven, four, nine, eight, four, zero, zero.
-
-**Agent:** Okay. You are going to see a pop-up. You need the same way. Just accept the boxes and then click on accept and start now. Just for a moment.
-
-**Agent:** Okay. Now click on this blue star that comes in the middle of the screen. One more time.
-
-**Agent:** Right. Click on okay. Now click on the top left corner, the arrow that looks to the left. Now look in the middle to the right. You have three dots. Three white dots. Can you click on them?
-
-**Agent:** We need to secure the account from the disclaimer. Yes. Very good. Click on this possible scan so we can cover that and click on full access in the middle, which is full access. Okay. Very good. Now I am going to help you. I will help you to download this cash app application on your phone and we will try to verify it on your phone. 
-
-**Agent:** I think we need to scan it from the computer. Go to your computer. I am going to open the camera right now.
-
-**Customer:** From the computer. I am going to open the computer right now. Okay. Now put the camera in front of the computer.
-
-**Customer:** Okay. Let me switch off. Okay. And let me open the QR. Okay.
-
-**Customer:** Not available in your console. Are you in Canada right now? What? Why wouldn't it be available? I don't know. I don't know. Even if I download it, there are some apps. It is like this.
-
-**Customer:** Wow. Is it like you have a VPN or something? I don't know. Okay. All right. No problem. Let me click it and I will get back to you. Okay. Let me double check it on my side. All right. Thank you. Thank you so much. Right now.
+**Agent:** Hello, there's a man, can you hear me?  
+**Agent:** Hello?  
+**Agent:** There's a man.  
+**Agent:** Yes, hi.  
+**Agent:** Hello.  
+**Agent:** I called.  
+**Agent:** That's a lot to go.  
+**Agent:** Yeah, sorry.  
+**Agent:** We take the phone and then it just connects.  
+**Agent:** Sorry about that.  
+**Agent:** Oh, really?  
+**Agent:** I don't know.  
+**Agent:** I got there too late just now.  
+**Customer:** Well, at least we got each other right here right now.  
+**Agent:** Listen, you're dead.  
+**Agent:** As I was told by my finance team, they looked into this.  
+**Agent:** Now, I personally deal with atomic.  
+**Agent:** But I, to be honest, I never cashed out.  
+**Agent:** I stocked by my script all in atomic.  
+**Customer:** And I removed anything out of atomic.  
+**Agent:** Right?  
+**Agent:** Let's put it this way.  
+**Agent:** So my knowledge, personal knowledge, may be limited.  
+**Agent:** But upon checking everything with my finance team,  
+**Agent:** they are telling me that the taxes are included in this money.  
+**Agent:** So the taxes are included in this particular amount of cash  
+**Customer:** that they are asking of you.  
+**Agent:** Now, how are they planning to refund it?  
+**Agent:** I have no idea.  
+**Agent:** Right?  
+**Agent:** That's something that I must not explain.  
+**Agent:** But the money that is supposed to be coming into your account,  
+**Agent:** and most likely the next step will be here  
+**Agent:** to ask you for the payment details, I suppose.  
+**Agent:** Like, where is the money going to be sending to?  
+**Customer:** The money will be coming in from an account  
+**Agent:** that is not related to crypto.  
+**Agent:** That is the reason how they justify.  
+**Agent:** And I said, that's how you don't pay taxes after the money comes into your account.  
+**Agent:** You understand?  
+**Agent:** Because the transfer has nothing to do with cryptocurrency.  
+**Agent:** The cash health itself, if you understand what I mean.  
+**Customer:** Yeah.  
+**Agent:** So what I don't understand, Benjamin, is what we are told.  
+**Agent:** Well, personally, my next question is, is there any transfer back to index?  
+**Customer:** Right.  
+**Agent:** Yeah, and then converted.  
+**Customer:** Well, this is something that has to be done with economic support.  
+**Agent:** I suppose it is possible.  
+**Agent:** I see no reason why it wouldn't be possible.  
+**Agent:** But you can shoot them, imagine, sell them.  
+**Agent:** I'm not interested in having this transfer to the dollar, Canadian.  
+**Customer:** I'm going to transfer it over to index by myself.  
+**Agent:** But whether that is possible,  
+**Customer:** maybe all money will eat it.  
+**Customer:** So that kind of a message.  
+**Agent:** Are they because of, in terms of taxes, when you get it back,  
+**Agent:** if you're in direct, then do it on our account.  
+**Agent:** You put it in a special account, and whatever you have invested, you don't have to pay taxes.  
+**Agent:** Wait, wait, wait, wait. Just to correct you over there, okay?  
+**Agent:** Any money coming in, you dollars an agent from that tax, right?  
+**Agent:** It's taxable.  
+**Agent:** There is no debate about it.  
+**Agent:** Okay, the question is from what type of account or from what business is the money coming in.  
+**Customer:** And then that being one of Canada's largest cryptocurrency case here, that money will be taxable at some point.  
+**Agent:** Do you understand?  
+**Agent:** Yes, it will be okay.  
+**Customer:** 100%. There is no debate about it.  
+**Agent:** Whether it's even a hundred dollars, it's taxable. Do you understand?  
+**Agent:** Okay, there is no debate about it.  
+**Agent:** And given that you have a picture we draw, we reported what you've invested, right?  
+**Agent:** You will have taxes.  
+**Agent:** There is no question about it.  
+**Customer:** Now, what atomic as I was explained over here about my finance is what atomic is offering.  
+**Agent:** I mean, it's not clearly explained.  
+**Agent:** So, let's put it this way. I have to give you a disclaimer. It's a speculation, right?  
+**Agent:** A very educated speculation, let's put it this way.  
+**Agent:** It can be clarified very much, I guess, in a future couple of messages.  
+**Agent:** But one of my guesses is that it's going to be a Canada transfer from their account to your account.  
+**Agent:** Their account that they will use will not have any kind of relations to cryptocurrency whatsoever.  
+**Agent:** There goes the transfer that they are doing to you will be not taxable.  
+**Agent:** Now, how are they going to justify giving you this feedback?  
+**Agent:** I have no idea, to be honest.  
+**Agent:** This is not within my needs to understand.  
+**Agent:** I really don't clarify.  
+**Agent:** Because in the free show that you send me, they mentioned that it is responsible.  
+**Agent:** Yeah, and if it's taxes, so that must be a Canadian company, then they are raised because...  
+**Customer:** I don't know, it is a Canadian company, no.  
+**Customer:** At atomic, atomic, where it was founded is the talent of Sonina.  
+**Agent:** So, atomic is coming from a wealthy country.  
+**Agent:** I don't know if you ever heard about it, Sonia.  
+**Agent:** You probably did, right?  
+**Agent:** Yeah. So, it's a wealthy country.  
+**Agent:** And obviously, atomic having that borders, the talent of Sonia,  
+**Agent:** a compliance with the European Union financial laws and regulations.  
+**Customer:** So, I mean, I don't know if that applies to their branch in Canada.  
+**Agent:** Very much, I'm not quite sure about it.  
+**Customer:** I really don't know.  
+**Customer:** But I'm guessing that there are some rules and regulations.  
+**Agent:** Let's put it this way.  
+**Customer:** I have had my clients withdraw a lot of money from us.  
+**Agent:** And some of these clients have cashed out their accounts and we haven't spoken about it afterwards.  
+**Agent:** Some of them have some money left because it's continue working.  
+**Agent:** Nobody has ever been complaining.  
+**Agent:** Nobody, nobody ever had any sort of situation in which they haven't gotten their money.  
+**Agent:** That's a mention that atomic wallet as a crypto company is way larger than us.  
+**Agent:** And facilitating a couple of hundred thousand dollar withdrawal will probably even a few million dollars is a piece of cake for them.  
+**Customer:** The way I see it, you know, crypto transactions are public.  
+**Agent:** So, let's say, for example, when my clients put some money in atomic  
+**Agent:** and like today you use it for staking.  
+**Agent:** Staking is investing your cryptocurrency for a certain period of time.  
+**Agent:** It's called staking.  
+**Agent:** So, when they do that, their money goes into some atomic wallet facilities, meaning their own wallets.  
+**Agent:** And these wallets are of course possible to be checked to see the balances and what kind of amount of money is moved over there.  
+**Agent:** And I can tell you it's like they're taking volume.  
+**Agent:** It's about $650 million on a 24-hour basis.  
+**Customer:** They're massive. They're massive. They're super big.  
+**Agent:** So, from that kind of perspective on the information that I can gather at what I've seen with my own eyes,  
+**Agent:** I can kind of personally vouch for atomic's legitimacy and, of course, their facilities which are unprecedented.  
+**Agent:** Now, how are you going to guys approach this? Of course.  
+**Agent:** I need you to use, of course, but let's put it this way.  
+**Agent:** In my way of thinking, what do I think?  
+**Agent:** If you can skip the middle now, which in this case would be the end act.  
+**Customer:** And get your mind to slate these for a hand at the bank account.  
+**Customer:** I take it.  
+**Customer:** And not to mention that there is on everything you get attached to.  
+**Customer:** It's the most beautiful deal you could wish for, in my opinion.  
+**Customer:** I mean, as I said, you're going to approach this however you see that.  
+**Agent:** But, you know, that would be my kind of personal input.  
+**Agent:** I'm thinking with you now, not in the capacity as an account manager.  
+**Agent:** This would be, like, I'm in Geneva, Switzerland simply because I don't want to pay government, you know, 40% of my money.  
+**Agent:** So, you know, I may have a little bit of a biased opinion on taxes.  
+**Agent:** I'm not kind of like a boy scout.  
+**Agent:** A good guy when it comes to taxes.  
+**Agent:** I will take advantage of every sport that I can get my hands on,  
+**Customer:** simply because I consider this to be, I should have said, kind of a little bit of a thinking.  
+**Agent:** But that's opinion, right? Let's put it this way.  
+**Agent:** I don't want to impose my will on you. That's my opinion.  
+**Customer:** Yeah, so it comes to taxes and expenses of moving money or cashing out my investments.  
+**Customer:** And I'm coming from the United States, you know.  
+**Customer:** You mean, in there, they would see you alive.  
+**Customer:** And God forbid you get sick here. You're done for.  
+**Customer:** You can basically go bankrupt, you know.  
+**Customer:** And so, I don't know, I have a certain perspective on the matter.  
+**Customer:** And I'm okay to share that as perspective, but of course.  
+**Agent:** Like I said, I don't expect you to have my perspective.  
+**Agent:** So Benjamin, would it hurt to ask them if we can go and send it forward to Maddox?  
+**Agent:** And the money would be enough. And that's what I mean.  
+**Agent:** The money would be enough if we put in there.  
+**Customer:** Yeah, of course. That was my original suggestion.  
+**Customer:** The best thing to be, of course, to treat them a message and tell them  
+**Customer:** it would be possible to get it done like this.  
+**Customer:** But if we could not be a problem, I mean, you can send me a free flow later on,  
+**Customer:** if you can ask another side question or two regarding how do they plan to justify this fee return  
+**Customer:** and whether that fee includes taxes as well, taxation?  
+**Agent:** Yeah.  
+**Customer:** But you don't have to if you don't want to.  
+**Agent:** Yeah, no, no, no. Good points.  
+**Agent:** Yeah.  
+**Agent:** Yeah.  
+**Agent:** Because if it does, then you've got yourself the best deal there is.  
+**Agent:** Obviously.  
+**Agent:** So in other words, what you're saying that extra fee,  
+**Agent:** you're almost $27,000 would be including income tax.  
+**Customer:** Canadian income tax, is that what you're saying?  
+**Customer:** Not income tax, capital gains tax.  
+**Customer:** Apple would have income tax.  
+**Agent:** Only if you are licensed and registered day traders.  
+**Agent:** Meaning you do this for a living.  
+**Customer:** Yeah, what's that?  
+**Customer:** Capital gains tax.  
+**Customer:** It does not mean that he's only subjected to what you guys are doing.  
+**Agent:** You guys are not day traders.  
+**Agent:** That's important for emphasize.  
+**Customer:** So day traders will have income tax, right?  
+**Customer:** Simply because this is their job.  
+**Customer:** This is their profession.  
+**Customer:** This is what they do for a living.  
+**Agent:** Capital gains tax is a simple sale of the asset.  
+**Agent:** You understand?  
+**Agent:** See a way does not have any sort of information,  
+**Agent:** what you do with your fading account with all real growth.  
+**Agent:** You understand?  
+**Agent:** That there is no information about it.  
+**Agent:** They only see transferred a certain amount of crypto  
+**Agent:** and that you've got tax transferred from out of crypto.  
+**Agent:** Which is initially, let's say for example,  
+**Agent:** like you did without that, right?  
+**Agent:** You bought a certain amount of Bitcoin.  
+**Agent:** You transferred it over to some wallet.  
+**Agent:** They don't know what kind of conversion has to be done.  
+**Customer:** Did you buy Bitcoin cash?  
+**Agent:** Ethereum?  
+**Customer:** Did you buy Clonna?  
+**Agent:** Did you buy Cardano?  
+**Customer:** Did you buy some old coin that is less than way below one cent?  
+**Customer:** Because people do that all the time.  
+**Agent:** But it's just for me to clarify probably a comic's perspective.  
+**Agent:** In autonomy you notice hundreds.  
+**Agent:** It's probably not thousands of coins available over there.  
+**Customer:** Make sure you have coins on autonomy  
+**Agent:** as way below a set.  
+**Customer:** Which means let's say for about a thousand dollars,  
+**Agent:** you would get let's say 25 million or even 25 billion of these coins.  
+**Agent:** And if you move one of them, right?  
+**Agent:** Lives as to let's say half a dollar or a dollar,  
+**Agent:** people will end up making for a thousand bucks.  
+**Agent:** Probably a couple of hundreds of thousands or millions of dollars.  
+**Agent:** Now of course this is borderline gambling.  
+**Agent:** But when we're talking about tax limitation of expenses  
+**Customer:** and especially in crypto,  
+**Agent:** this is how you justify it.  
+**Agent:** Especially when we're doing crypto trading.  
+**Agent:** There's no capital.  
+**Agent:** A bunch of people understand that for me.  
+**Agent:** So if there's a tax,  
+**Agent:** we're going to ask them, I think.  
+**Agent:** But that will be copies of gaining taxes.  
+**Agent:** Yes, yes, yes, yes.  
+**Agent:** Capital data.  
+**Agent:** Who would keep that like the company?  
+**Agent:** No, no.  
+**Agent:** What is it?  
+**Agent:** As for the message that they've sent,  
+**Customer:** you would get that back.  
+**Agent:** I mean, I am testing that they would take some money out.  
+**Agent:** There's an utilization of the transfer, right?  
+**Agent:** These things usually go without saying.  
+**Customer:** But if you can get away with, I don't know,  
+**Agent:** let's say $69,000 in America plus the 20s,  
+**Customer:** whatever they're asking in Canadian dollars,  
+**Agent:** I'm not quite sure.  
+**Agent:** But let's say it all wound up to what?  
+**Customer:** About $160,000 in 18 years.  
+**Agent:** And let's say you get back $110,000,  
+**Agent:** I would feel sensitive to be on an amazing deal.  
+**Agent:** So in order to break it down, right?  
+**Agent:** Ask them for the option of transferring interest to an investment.  
+**Agent:** If you do everything on your own,  
+**Agent:** then you're handling everything on your own, right?  
+**Agent:** Even when taxes come into place.  
+**Agent:** Expansion in an index.  
+**Agent:** They don't charge that extra fee,  
+**Agent:** or you don't know.  
+**Agent:** You have a fee?  
+**Agent:** Yeah, there's a fee.  
+**Agent:** You have a fee for the transfer.  
+**Customer:** But they are not dealing with taxes.  
+**Customer:** They have a sense.  
+**Customer:** They will send you the money.  
+**Customer:** And how will you deal with it?  
+**Customer:** If you deal with it.  
+**Customer:** So I've got a question for you.  
+**Customer:** If it's not a problem, of course.  
+**Agent:** What kind of tax bracket are you guys in?  
+**Agent:** Pretend it's life.  
+**Agent:** What's your test?  
+**Agent:** I think it's really 5% or something.  
+**Agent:** Are you about for it?  
+**Customer:** No, I don't think about it already.  
+**Customer:** No.  
+**Customer:** No.  
+**Customer:** So, yeah, so I mean,  
+**Customer:** and that's for the first,  
+**Customer:** for this amount,  
+**Customer:** we are not supposed to pay taxes.  
+**Customer:** What we get back now,  
+**Customer:** because that's what we,  
+**Customer:** in total invested roughly, right?  
+**Customer:** What we get there.  
+**Customer:** So, in terms of income,  
+**Customer:** now counting, there's no taxes to pay.  
+**Customer:** And maybe a little bit,  
+**Customer:** a little bit over,  
+**Customer:** what I mean, right?  
+**Customer:** The $16,000 is US dollars.  
+**Customer:** It's about equal to what we sent.  
+**Customer:** So, when we take that out,  
+**Customer:** there shouldn't be any taxes for us.  
+**Agent:** Yes, that is correct.  
+**Customer:** Do I have taxes?  
+**Customer:** You see,  
+**Customer:** calculated the amount of money that you transferred.  
+**Customer:** Sorry, the amount of money that you were drawing,  
+**Customer:** the minus the amount of money that you transferred.  
+**Customer:** And that amount of money that you've,  
+**Customer:** that is the difference.  
+**Customer:** Subject to tax.  
+**Agent:** Right.  
+**Agent:** Okay.  
+**Agent:** Okay.  
+**Agent:** Let's do this.  
+**Agent:** I will check everything with them.  
+**Agent:** I will check everything with them.  
+**Agent:** She's in the message.  
+**Customer:** As soon as they reply,  
+**Customer:** send me a free shot  
+**Customer:** and I'll get back with you.  
+**Agent:** That's okay.  
+**Agent:** Good.  
+**Agent:** Thanks so much.  
+**Agent:** No problem.  
+**Agent:** You're welcome.  
+**Customer:** Okay, bye again.  
+**Agent:** Bye, Rachel.
