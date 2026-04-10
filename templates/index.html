@@ -9,7 +9,10 @@
       href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='index.css') }}"
+    />
   </head>
   <body>
     <main class="page">
@@ -24,12 +27,29 @@
             placeholder="Haz tu pregunta..."
             class="text-input"
           />
-          <button onclick="ask()" class="btn btn-primary">
-            Enviar
-          </button>
+          <button onclick="ask()" class="btn btn-primary">Enviar</button>
         </div>
         <p class="result-label"><strong>Respuesta:</strong></p>
         <p id="response" class="response-text"></p>
+      </section>
+
+      <section class="card card-gap">
+        <h2 class="section-title">Transcribir audio</h2>
+        <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 12px">
+          Procesa <code>data/llamada.mp3</code> con GPT-4o
+        </p>
+        <button
+          onclick="transcribe()"
+          class="btn btn-accent"
+          id="transcribe-btn"
+        >
+          Iniciar transcripción
+        </button>
+        <pre
+          id="transcribe-log"
+          class="transcript-box"
+          style="margin-top: 12px; display: none"
+        ></pre>
       </section>
 
       <section class="card">
@@ -45,7 +65,8 @@
       async function ask() {
         const question = document.getElementById("question").value.trim();
         if (!question) {
-          document.getElementById("response").innerText = "Escribe una pregunta primero.";
+          document.getElementById("response").innerText =
+            "Escribe una pregunta primero.";
           return;
         }
 
@@ -53,11 +74,13 @@
         const data = await res.json();
 
         if (!res.ok) {
-          document.getElementById("response").innerText = data.error || "Error al consultar.";
+          document.getElementById("response").innerText =
+            data.error || "Error al consultar.";
           return;
         }
 
-        document.getElementById("response").innerText = data.response || "Sin respuesta.";
+        document.getElementById("response").innerText =
+          data.response || "Sin respuesta.";
       }
 
       async function viewTranscript() {
@@ -65,11 +88,35 @@
         const data = await res.json();
 
         if (!res.ok) {
-          document.getElementById("transcript").innerText = data.error || "No fue posible cargar el transcript.";
+          document.getElementById("transcript").innerText =
+            data.error || "No fue posible cargar el transcript.";
           return;
         }
 
-        document.getElementById("transcript").innerText = data.transcript || "Transcript vacio.";
+        document.getElementById("transcript").innerText =
+          data.transcript || "Transcript vacio.";
+      }
+      async function transcribe() {
+        const btn = document.getElementById("transcribe-btn");
+        const log = document.getElementById("transcribe-log");
+
+        btn.disabled = true;
+        btn.innerText = "Procesando...";
+        log.style.display = "block";
+        log.innerText = "Enviando audio a GPT-4o...";
+
+        const res = await fetch("/transcribe", { method: "POST" });
+        const data = await res.json();
+
+        btn.disabled = false;
+        btn.innerText = "Iniciar transcripción";
+
+        if (!res.ok) {
+          log.innerText = "Error: " + (data.error || "desconocido");
+          return;
+        }
+
+        log.innerText = "✓ Listo\n\n" + (data.log || "");
       }
     </script>
   </body>
