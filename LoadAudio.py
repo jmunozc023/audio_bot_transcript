@@ -39,36 +39,34 @@ def transcribe_audio_whisper() -> str:
         text = seg.text.strip()
         lines.append(f"[{start}s - {end}s] {text}")
     raw_transcript = "\n".join(lines)
-    print(f"Whisper: {len(segments)} segmentos trasncritos")
+    print(f"Whisper: {len(segments)} segmentos transcritos")
     return raw_transcript
 
 ANALYSIS_PROMPT = """
-You are an expert call center conversation analyst.
+Eres un analista experto en conversaciones de call center.
 
-You will receive a raw transcript with timestamps from Whisper ASR.
-The transcript has NO speaker labels yet — your job is to add them.
+Recibirás una transcripción sin procesar con marcas de tiempo generadas por Whisper ASR.
+La transcripción no tiene etiquetas de hablantes aún — tu trabajo es agregarlas.
 
-Perform these three tasks:
+Realiza estas tres tareas:
 
-1. DIARIZATION
-   - Identify distinct speakers based on conversational cues: turn-taking
-     patterns, question/answer flow, topic ownership, speaking style,
-     and timestamp gaps indicating speaker switches.
-   - Assign consistent labels: Agent, Customer. If more than 2 speakers
-     are detected, use Agent, Customer, Supervisor, etc.
-   - Merge consecutive lines from the same speaker if the gap is < 1.5s.
+1. DIARIZACIÓN
 
-2. ROLE IDENTIFICATION
-   - Agent: uses formal/service language, asks clarifying questions,
-     offers solutions, references account/system data.
-   - Customer: describes problems, expresses needs or emotions,
-     asks for help or information.
+    - Identifica a los distintos hablantes basándote en señales conversacionales: patrones de turnos, flujo de preguntas y respuestas, propiedad del tema, estilo de habla y brechas de tiempo que indiquen cambios de hablante.
+    - Asigna etiquetas consistentes: Agente, Cliente. Si se detectan más de 2 hablantes, usa Agente, Cliente, Supervisor, etc.
+    - Fusiona líneas consecutivas del mismo hablante si la brecha es < 1.5 s.
 
-3. SENTIMENT per segment
-   - Label each segment: "positive", "negative", or "neutral"
-   - Add a compound score between -1.0 and 1.0
+2. IDENTIFICACIÓN DE ROLES
 
-Return ONLY a valid JSON object — no markdown, no commentary:
+    - Agente: usa lenguaje formal/de servicio, hace preguntas de aclaración, ofrece soluciones, hace referencia a datos de cuenta/sistema.
+    - Cliente: describe problemas, expresa necesidades o emociones, pide ayuda o información.
+
+3. SENTIMIENTO por segmento
+
+    - Etiqueta cada segmento como: "positivo", "negativo" o "neutral".
+    - Agrega un puntaje compuesto entre -1.0 y 1.0.
+
+Devuelve ÚNICAMENTE un objeto JSON válido — sin markdown, sin comentarios
 
 {{
   "segments": [

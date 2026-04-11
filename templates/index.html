@@ -3,58 +3,88 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Audio bot - Call Center</title>
+    <title>Audio bot — Call Center</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='index.css') }}"
-    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}" />
   </head>
   <body>
     <main class="page">
-      <h1 class="page-title">Audio bot - Call Center</h1>
+      <h1 class="page-title">Audio bot — Call Center</h1>
 
+      <!-- ── Upload & Transcribe ── -->
+      <section class="card card-gap">
+        <h2 class="section-title">Cargar audio</h2>
+
+        <div class="drop-zone" id="dropZone">
+          <div class="drop-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <path d="M16 4v16M8 12l8-8 8 8" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 24h24" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round"/>
+              <rect x="4" y="24" width="24" height="4" rx="2"
+                fill="currentColor" opacity="0.15"/>
+            </svg>
+          </div>
+          <p class="drop-label">Arrastra tu archivo aquí</p>
+          <p class="drop-sub">mp3 · wav · m4a · ogg · flac · mp4</p>
+          <input type="file" id="audioInput"
+            accept=".mp3,.wav,.m4a,.ogg,.flac,.mp4,.webm" hidden />
+          <button class="btn btn-outline" onclick="document.getElementById('audioInput').click()">
+            Seleccionar archivo
+          </button>
+        </div>
+
+        <!-- File preview pill — hidden until file selected -->
+        <div class="file-pill" id="filePill" style="display:none;">
+          <span class="file-pill-icon">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M3 2h7l3 3v9a1 1 0 01-1 1H3a1 1 0 01-1-1V3a1 1 0 011-1z"
+                stroke="currentColor" stroke-width="1.4"/>
+              <path d="M10 2v3h3" stroke="currentColor" stroke-width="1.4"/>
+            </svg>
+          </span>
+          <span class="file-pill-name" id="fileName">—</span>
+          <span class="file-pill-size" id="fileSize"></span>
+          <button class="file-pill-remove" onclick="clearFile()" title="Quitar">✕</button>
+        </div>
+
+        <!-- Progress bar — hidden until transcription starts -->
+        <div class="progress-wrap" id="progressWrap" style="display:none;">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <span class="progress-label" id="progressLabel">Procesando...</span>
+        </div>
+
+        <button class="btn btn-accent" id="transcribeBtn"
+          onclick="transcribe()" disabled>
+          Transcribir
+        </button>
+      </section>
+
+      <!-- ── Ask ── -->
       <section class="card card-gap">
         <h2 class="section-title">Realizar pregunta</h2>
         <div class="question-row">
-          <input
-            type="text"
-            id="question"
-            placeholder="Haz tu pregunta..."
+          <input type="text" id="question"
+            placeholder="Haz tu pregunta sobre la llamada..."
             class="text-input"
-          />
+            onkeydown="if(event.key==='Enter') ask()" />
           <button onclick="ask()" class="btn btn-primary">Enviar</button>
         </div>
         <p class="result-label"><strong>Respuesta:</strong></p>
         <p id="response" class="response-text"></p>
       </section>
 
-      <section class="card card-gap">
-        <h2 class="section-title">Transcribir audio</h2>
-        <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 12px">
-          Procesa <code>data/llamada.mp3</code> con GPT-4o
-        </p>
-        <button
-          onclick="transcribe()"
-          class="btn btn-accent"
-          id="transcribe-btn"
-        >
-          Iniciar transcripción
-        </button>
-        <pre
-          id="transcribe-log"
-          class="transcript-box"
-          style="margin-top: 12px; display: none"
-        ></pre>
-      </section>
-
+      <!-- ── Transcript viewer ── -->
       <section class="card">
         <h2 class="section-title">Ver transcript</h2>
-        <button onclick="viewTranscript()" class="btn btn-accent">
+        <button onclick="viewTranscript()" class="btn btn-accent-soft">
           Cargar transcript
         </button>
         <pre id="transcript" class="transcript-box"></pre>
@@ -62,61 +92,153 @@
     </main>
 
     <script>
+      let selectedFile = null;
+
+      // ── File selection ──────────────────────────────────────────────────────
+
+      const audioInput = document.getElementById("audioInput");
+      const dropZone   = document.getElementById("dropZone");
+
+      audioInput.addEventListener("change", () => {
+        if (audioInput.files[0]) setFile(audioInput.files[0]);
+      });
+
+      // Drag & drop
+      dropZone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropZone.classList.add("drag-over");
+      });
+      dropZone.addEventListener("dragleave", () => {
+        dropZone.classList.remove("drag-over");
+      });
+      dropZone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        dropZone.classList.remove("drag-over");
+        const file = e.dataTransfer.files[0];
+        if (file) setFile(file);
+      });
+
+      function setFile(file) {
+        selectedFile = file;
+
+        // Show pill
+        document.getElementById("fileName").textContent = file.name;
+        document.getElementById("fileSize").textContent = formatBytes(file.size);
+        document.getElementById("filePill").style.display = "flex";
+
+        // Enable button
+        document.getElementById("transcribeBtn").disabled = false;
+      }
+
+      function clearFile() {
+        selectedFile = null;
+        audioInput.value = "";
+        document.getElementById("filePill").style.display  = "none";
+        document.getElementById("progressWrap").style.display = "none";
+        document.getElementById("transcribeBtn").disabled  = true;
+      }
+
+      function formatBytes(bytes) {
+        if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
+        return (bytes / (1024 * 1024)).toFixed(1) + " MB";
+      }
+
+      // ── Transcribe ──────────────────────────────────────────────────────────
+
+      async function transcribe() {
+        if (!selectedFile) return;
+
+        const btn      = document.getElementById("transcribeBtn");
+        const wrap     = document.getElementById("progressWrap");
+        const fill     = document.getElementById("progressFill");
+        const label    = document.getElementById("progressLabel");
+
+        btn.disabled   = true;
+        wrap.style.display = "flex";
+
+        // Indeterminate progress animation while waiting
+        fill.style.width = "0%";
+        label.textContent = "Subiendo archivo...";
+
+        const steps = [
+          { pct: 15, text: "Subiendo archivo..." },
+          { pct: 35, text: "Transcribiendo con Whisper..." },
+          { pct: 65, text: "Analizando con GPT-4o..." },
+          { pct: 85, text: "Generando transcript..." },
+        ];
+
+        let stepIndex = 0;
+        const stepInterval = setInterval(() => {
+          if (stepIndex < steps.length) {
+            fill.style.width  = steps[stepIndex].pct + "%";
+            label.textContent = steps[stepIndex].text;
+            stepIndex++;
+          }
+        }, 1800);
+
+        try {
+          const fd = new FormData();
+          fd.append("audio", selectedFile);
+
+          const res  = await fetch("/transcribe", { method: "POST", body: fd });
+          const data = await res.json();
+
+          clearInterval(stepInterval);
+
+          if (!res.ok) {
+            fill.style.background = "var(--error)";
+            fill.style.width      = "100%";
+            label.textContent     = "Error: " + (data.error || "desconocido");
+            btn.disabled          = false;
+            return;
+          }
+
+          fill.style.width  = "100%";
+          label.textContent = "✓ Transcript generado correctamente";
+
+          // Auto-load transcript after success
+          setTimeout(() => viewTranscript(), 600);
+
+        } catch (err) {
+          clearInterval(stepInterval);
+          label.textContent = "Error de red: " + err.message;
+          btn.disabled      = false;
+        }
+      }
+
+      // ── Ask ─────────────────────────────────────────────────────────────────
+
       async function ask() {
         const question = document.getElementById("question").value.trim();
+        const responseEl = document.getElementById("response");
+
         if (!question) {
-          document.getElementById("response").innerText =
-            "Escribe una pregunta primero.";
+          responseEl.textContent = "Escribe una pregunta primero.";
           return;
         }
 
-        const res = await fetch(`/ask?q=${encodeURIComponent(question)}`);
+        responseEl.textContent = "Consultando...";
+
+        const res  = await fetch(`/ask?q=${encodeURIComponent(question)}`);
         const data = await res.json();
 
-        if (!res.ok) {
-          document.getElementById("response").innerText =
-            data.error || "Error al consultar.";
-          return;
-        }
-
-        document.getElementById("response").innerText =
-          data.response || "Sin respuesta.";
+        responseEl.textContent = res.ok
+          ? (data.response || "Sin respuesta.")
+          : (data.error   || "Error al consultar.");
       }
+
+      // ── Transcript viewer ───────────────────────────────────────────────────
 
       async function viewTranscript() {
-        const res = await fetch("/transcript");
+        const box = document.getElementById("transcript");
+        box.textContent = "Cargando...";
+
+        const res  = await fetch("/transcript");
         const data = await res.json();
 
-        if (!res.ok) {
-          document.getElementById("transcript").innerText =
-            data.error || "No fue posible cargar el transcript.";
-          return;
-        }
-
-        document.getElementById("transcript").innerText =
-          data.transcript || "Transcript vacio.";
-      }
-      async function transcribe() {
-        const btn = document.getElementById("transcribe-btn");
-        const log = document.getElementById("transcribe-log");
-
-        btn.disabled = true;
-        btn.innerText = "Procesando...";
-        log.style.display = "block";
-        log.innerText = "Enviando audio a GPT-4o...";
-
-        const res = await fetch("/transcribe", { method: "POST" });
-        const data = await res.json();
-
-        btn.disabled = false;
-        btn.innerText = "Iniciar transcripción";
-
-        if (!res.ok) {
-          log.innerText = "Error: " + (data.error || "desconocido");
-          return;
-        }
-
-        log.innerText = "✓ Listo\n\n" + (data.log || "");
+        box.textContent = res.ok
+          ? (data.transcript || "Transcript vacío.")
+          : (data.error      || "No fue posible cargar el transcript.");
       }
     </script>
   </body>
