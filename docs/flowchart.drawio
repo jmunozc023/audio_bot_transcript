@@ -1,134 +1,133 @@
-<mxfile host="app.diagrams.net" modified="2026-04-17T06:39:00.000Z" agent="Copilot" version="21.0.0" type="device">
+<mxfile host="app.diagrams.net" agent="Copilot">
   <diagram id="audio-bot-flowchart" name="Audio Bot Transcript – Flowchart (Simplified)">
-    <mxGraphModel dx="1200" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+    <mxGraphModel dx="1212" dy="661" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-
-        <!-- Containers / Swimlanes -->
-        <mxCell id="fe_container" value="Frontend" style="swimlane;startSize=28;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="40" y="80" width="260" height="420" as="geometry" />
+        <mxCell id="fe_container" parent="1" style="swimlane;startSize=28;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;" value="Frontend" vertex="1">
+          <mxGeometry height="420" width="260" x="40" y="80" as="geometry" />
         </mxCell>
-
-        <mxCell id="api_container" value="Flask API (app.py)" style="swimlane;startSize=28;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="340" y="80" width="300" height="420" as="geometry" />
+        <mxCell id="ui" parent="fe_container" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="UI Web&lt;div&gt;&amp;nbsp;(Subir audio / Preguntar / Ver transcript)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="220" x="20" y="70" as="geometry" />
         </mxCell>
-
-        <mxCell id="pipe_container" value="Transcription Pipeline" style="swimlane;startSize=28;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="680" y="80" width="300" height="420" as="geometry" />
+        <mxCell id="api_container" parent="1" style="swimlane;startSize=28;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=12;" value="Flask API (app.py)" vertex="1">
+          <mxGeometry height="450" width="300" x="340" y="80" as="geometry" />
         </mxCell>
-
-        <mxCell id="rag_container" value="RAG (rag/)" style="swimlane;startSize=28;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="340" y="540" width="640" height="260" as="geometry" />
+        <mxCell id="routes" parent="api_container" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Endpoints&lt;div&gt;\(home)&lt;/div&gt;&lt;div&gt;\transcribe&lt;/div&gt;&lt;div&gt;\ask&lt;/div&gt;&lt;div&gt;\transcript&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="220" x="40" y="70" as="geometry" />
         </mxCell>
-
-        <!-- Actor -->
-        <mxCell id="user" value="Usuario" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1e3a5f;strokeColor=#4a90d9;fontColor=#ffffff;fontStyle=1;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="70" y="20" width="140" height="40" as="geometry" />
+        <mxCell id="validate" parent="api_container" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;" value="Validar archivo&lt;div&gt;(.mp3 + campo audio)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="160" x="70" y="190" as="geometry" />
         </mxCell>
-
-        <!-- Frontend nodes -->
-        <mxCell id="ui" value="UI Web\n(Subir audio / Preguntar / Ver transcript)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="fe_container">
-          <mxGeometry x="20" y="70" width="220" height="70" as="geometry" />
+        <mxCell id="save_mp3" parent="api_container" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Guardar audio&lt;div&gt;data/llamada.mp3&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="220" x="40" y="290" as="geometry" />
         </mxCell>
-
-        <!-- API nodes -->
-        <mxCell id="routes" value="Endpoints\n/ (home)\n/transcribe\n/ask\n/transcript" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="api_container">
-          <mxGeometry x="40" y="70" width="220" height="90" as="geometry" />
+        <mxCell id="reset" parent="api_container" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="Invalidar caché RAG&lt;div&gt;(qe.index = None)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="220" x="40" y="370" as="geometry" />
         </mxCell>
-
-        <mxCell id="validate" value="Validar archivo\n(.mp3 + campo audio)" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;" vertex="1" parent="api_container">
-          <mxGeometry x="70" y="190" width="160" height="70" as="geometry" />
+        <mxCell id="pipe_container" parent="1" style="swimlane;startSize=28;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=12;" value="Transcription Pipeline" vertex="1">
+          <mxGeometry height="420" width="300" x="680" y="80" as="geometry" />
         </mxCell>
-
-        <mxCell id="save_mp3" value="Guardar audio\ndata/llamada.mp3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="api_container">
-          <mxGeometry x="40" y="290" width="220" height="60" as="geometry" />
+        <mxCell id="whisper" parent="pipe_container" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Whisper&lt;div&gt;transcribe_audio_whisper()&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="220" x="40" y="70" as="geometry" />
         </mxCell>
-
-        <mxCell id="reset" value="Invalidar caché RAG\n(qe.index = None)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="api_container">
-          <mxGeometry x="40" y="370" width="220" height="60" as="geometry" />
+        <mxCell id="gpt" parent="pipe_container" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="GPT-4o-mini&lt;div&gt;(análisis: diarización + sentimiento)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="220" x="40" y="150" as="geometry" />
         </mxCell>
-
-        <!-- Pipeline nodes -->
-        <mxCell id="whisper" value="Whisper\ntranscribe_audio_whisper()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="pipe_container">
-          <mxGeometry x="40" y="70" width="220" height="60" as="geometry" />
+        <mxCell id="save_txt" parent="pipe_container" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Guardar transcript&lt;div&gt;data/call.txt&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="220" x="40" y="240" as="geometry" />
         </mxCell>
-
-        <mxCell id="gpt" value="GPT-4o-mini\n(análisis: diarización + sentimiento)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="pipe_container">
-          <mxGeometry x="40" y="150" width="220" height="70" as="geometry" />
+        <mxCell id="rag_container" parent="1" style="swimlane;startSize=28;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=12;" value="RAG (rag/)" vertex="1">
+          <mxGeometry height="260" width="640" x="340" y="540" as="geometry" />
         </mxCell>
-
-        <mxCell id="save_txt" value="Guardar transcript\ndata/call.txt" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="pipe_container">
-          <mxGeometry x="40" y="240" width="220" height="60" as="geometry" />
+        <mxCell id="calltxt" parent="rag_container" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#2d1b00;strokeColor=#c97a00;fontColor=#ffffff;fontSize=11;" value="data/call.txt" vertex="1">
+          <mxGeometry height="60" width="160" x="30" y="111" as="geometry" />
         </mxCell>
-
-        <!-- Artifact -->
-        <mxCell id="calltxt" value="data/call.txt" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#2d1b00;strokeColor=#c97a00;fontColor=#ffffff;fontSize=11;" vertex="1" parent="rag_container">
-          <mxGeometry x="30" y="120" width="160" height="60" as="geometry" />
+        <mxCell id="rag" parent="rag_container" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="RAG: construir/usar índice&lt;div&gt;y responder pregunta&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="290" x="320" y="95" as="geometry" />
         </mxCell>
-
-        <!-- RAG nodes -->
-        <mxCell id="rag" value="RAG: construir/usar índice\ny responder pregunta" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="rag_container">
-          <mxGeometry x="230" y="95" width="380" height="90" as="geometry" />
+        <mxCell id="user" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1e3a5f;strokeColor=#4a90d9;fontColor=#ffffff;fontStyle=1;fontSize=11;" value="Usuario" vertex="1">
+          <mxGeometry height="40" width="140" x="70" y="20" as="geometry" />
         </mxCell>
-
-        <!-- Edges -->
-        <mxCell id="e1" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="user" target="ui" parent="1">
+        <mxCell id="e1" edge="1" parent="1" source="user" style="edgeStyle=orthogonalEdgeStyle;" target="ui" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="e2" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="ui" target="routes" parent="1">
+        <mxCell id="e2" edge="1" parent="1" source="ui" style="edgeStyle=orthogonalEdgeStyle;" target="routes" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="e3" value="/transcribe" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="routes" target="validate" parent="1">
+        <mxCell id="e3" edge="1" parent="1" source="routes" style="edgeStyle=orthogonalEdgeStyle;" target="validate" value="/transcribe">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="e4" value="OK" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;" edge="1" source="validate" target="save_mp3" parent="1">
+        <mxCell id="e4" edge="1" parent="1" source="validate" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;" target="save_mp3" value="OK">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="e5" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="save_mp3" target="whisper" parent="1">
+        <mxCell id="e5" edge="1" parent="1" source="save_mp3" style="edgeStyle=orthogonalEdgeStyle;" target="whisper" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="960" y="400" />
+              <mxPoint x="960" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="whisper" style="edgeStyle=orthogonalEdgeStyle;" target="gpt" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="e6" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="whisper" target="gpt" parent="1">
+        <mxCell id="e7" edge="1" parent="1" source="gpt" style="edgeStyle=orthogonalEdgeStyle;" target="save_txt" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="e7" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="gpt" target="save_txt" parent="1">
+        <mxCell id="e8" edge="1" parent="1" source="save_txt" style="edgeStyle=orthogonalEdgeStyle;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="calltxt" value="escribe">
+          <mxGeometry relative="1" x="-0.6053" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="830" y="520" />
+              <mxPoint x="330" y="520" />
+              <mxPoint x="330" y="680" />
+              <mxPoint x="370" y="680" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="routes" style="edgeStyle=orthogonalEdgeStyle;fillColor=#dae8fc;strokeColor=#6c8ebf;" target="rag" value="/ask">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="610" y="195" />
+              <mxPoint x="610" y="438" />
+              <mxPoint x="760" y="438" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="calltxt" style="edgeStyle=orthogonalEdgeStyle;dashed=1;" target="rag" value="usa">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="e8" value="escribe" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="save_txt" target="calltxt" parent="1">
+        <mxCell id="e11" edge="1" parent="1" source="rag" style="edgeStyle=orthogonalEdgeStyle;dashed=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" target="ui" value="respuesta">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="733" y="620" />
+              <mxPoint x="170" y="620" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="calltxt" style="edgeStyle=orthogonalEdgeStyle;dashed=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" target="routes" value="/transcript">
+          <mxGeometry relative="1" x="0.0598" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="450" y="600" />
+              <mxPoint x="360" y="600" />
+              <mxPoint x="360" y="260" />
+              <mxPoint x="435" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="validate" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;" target="ui" value="error">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="e9" value="/ask" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="routes" target="rag" parent="1">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="e14" edge="1" parent="1" source="save_txt" style="edgeStyle=orthogonalEdgeStyle;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fillColor=#f8cecc;strokeColor=#b85450;" target="reset" value="reset">
+          <mxGeometry relative="1" x="0.2728" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="830" y="480" />
+            </Array>
+          </mxGeometry>
         </mxCell>
-
-        <mxCell id="e10" value="usa" style="edgeStyle=orthogonalEdgeStyle;dashed=1;" edge="1" source="calltxt" target="rag" parent="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-
-        <mxCell id="e11" value="respuesta" style="edgeStyle=orthogonalEdgeStyle;dashed=1;" edge="1" source="rag" target="ui" parent="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-
-        <mxCell id="e12" value="/transcript" style="edgeStyle=orthogonalEdgeStyle;dashed=1;" edge="1" source="calltxt" target="routes" parent="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-
-        <mxCell id="e13" value="error" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;" edge="1" source="validate" target="ui" parent="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-
-        <mxCell id="e14" value="reset" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="save_txt" target="reset" parent="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-
       </root>
     </mxGraphModel>
   </diagram>
