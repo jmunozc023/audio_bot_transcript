@@ -31,7 +31,7 @@ def report(msg: str, pct: int = None):
         _progress_cb(msg, pct)
 
 def transcribe_audio_whisper() -> list[dict]:
-    # report("Transcribiendo audio con Whisper...", 10)
+
 
     report("Transcribiendo audio con Whisper...")
     t0 = time.time()
@@ -62,18 +62,7 @@ def transcribe_audio_whisper() -> list[dict]:
 
     return segs
 
-    
-    """ segments = response.segments or []
 
-    lines = []
-    for seg in segments:
-        start = round(seg.start, 2)
-        end = round(seg.end, 2)
-        text = seg.text.strip()
-        lines.append(f"[{start}s - {end}s] {text}")
-    raw_transcript = "\n".join(lines)
-    print(f"Whisper: {len(segments)} segmentos transcritos")
-    return raw_transcript """
 
 def build_transcript_for_gpt(segments: list[dict]) -> str:
 
@@ -176,8 +165,6 @@ def analysis_with_gpt4o(segments: list[dict]) -> dict:
     elapsed = round(time.time() - t0, 1)
     result = json.loads(response.choices[0].message.content.strip())
 
-    # raw_json = response.choices[0].message.content.strip()
-    # result = json.loads(raw_json)
 
     report(
         f"GPT-4o: {result.get('detected_speakers', '?')} speakers detectados, "
@@ -185,10 +172,6 @@ def analysis_with_gpt4o(segments: list[dict]) -> dict:
         85
     )
 
-    # print(
-    #     f"GPT-4o: {result.get('detected_speakers', '?')} speakers detectados, "
-    #     f"{len(result.get('segments', []))} segmentos."
-    # )
     return result
 
 def validate_sentiment(segments: list[dict]) -> list[dict]:
@@ -230,16 +213,12 @@ def save_transcript(result: dict):
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write("\n".join(lines))
     report(f"{OUTPUT_FILE} generado - {len(segments)} segmentos", 100)
-    # print(f"{OUTPUT_FILE} generado - {len(segments)} segmentos")
 
 def transcribe_audio():
     t0 = time.time()
     segs= transcribe_audio_whisper()
     result = analysis_with_gpt4o(segs)
     result["segments"] = validate_sentiment(result["segments"])
-    # raw_transcript = transcribe_audio_whisper()
-    # result = analysis_with_gpt4o(raw_transcript)
-    # result["segments"] = validate_sentiment(result.get("segments", []))
     save_transcript(result)
     report(f"Tiempo total: {round(time.time() - t0, 1)}s", 100)
 
