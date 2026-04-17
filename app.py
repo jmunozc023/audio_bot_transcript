@@ -1,6 +1,4 @@
-import subprocess
 import os
-import sys
 
 from flask import Flask, request, jsonify, render_template
 from rag.query_engine import ask_question
@@ -71,4 +69,3 @@ def transcribe():
 
 if __name__ == "__main__":
     app.run(port=8090)
-
