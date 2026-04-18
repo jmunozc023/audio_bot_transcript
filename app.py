@@ -58,6 +58,7 @@ def transcribe():
 
     import LoadAudio
     LoadAudio.AUDIO_FILE = audio_path
+    LoadAudio.OUTPUT_FILE = os.path.join("data", "call.txt")
 
     try:
         transcribe_audio()

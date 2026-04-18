@@ -2,7 +2,7 @@ import os
 import io
 import json
 import time
-from openai import OpenAI
+from openai import OpenAI, APITimeoutError, APIConnectionError
 from dotenv import load_dotenv
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import nltk
@@ -20,6 +20,10 @@ AUDIO_FILE = "data/llamada.mp3"
 OUTPUT_FILE = "data/call.txt"
 
 _progress_cb = None
+GPT_CHUNK_SIZE = int(os.getenv("GPT_CHUNK_SIZE", "80"))
+GPT_TIMEOUT_SECONDS = float(os.getenv("GPT_TIMEOUT_SECONDS", "240"))
+GPT_REQUEST_RETRIES = int(os.getenv("GPT_REQUEST_RETRIES", "2"))
+GPT_RETRY_BACKOFF_SECONDS = float(os.getenv("GPT_RETRY_BACKOFF_SECONDS", "2"))
 
 def set_progress_callback(cb):
     global _progress_cb
@@ -131,40 +135,149 @@ Raw transcript:
 {transcript}
 """
 
+def _chunk_segments(segments: list[dict], chunk_size: int) -> list[list[dict]]:
+    if chunk_size <= 0:
+        return [segments]
+    return [segments[i:i + chunk_size] for i in range(0, len(segments), chunk_size)]
+
+def _score_to_label(score: float) -> str:
+    if score >= 0.05:
+        return "positive"
+    if score <= -0.05:
+        return "negative"
+    return "neutral"
+
+def _build_speaker_summary_from_segments(segments: list[dict]) -> dict:
+    buckets = {}
+    for seg in segments:
+        speaker = seg.get("speaker", "Unknown")
+        duration = max(float(seg.get("end", 0)) - float(seg.get("start", 0)), 0.0)
+        score = float(seg.get("sentiment_score", 0))
+
+        data = buckets.setdefault(
+            speaker,
+            {"talk_time_seconds": 0.0, "segment_count": 0, "scores": []},
+        )
+        data["talk_time_seconds"] += duration
+        data["segment_count"] += 1
+        data["scores"].append(score)
+
+    summary = {}
+    for speaker, data in buckets.items():
+        avg = sum(data["scores"]) / len(data["scores"]) if data["scores"] else 0.0
+        summary[speaker] = {
+            "avg_sentiment": round(avg, 2),
+            "overall": _score_to_label(avg),
+            "talk_time_seconds": round(data["talk_time_seconds"], 1),
+            "segment_count": data["segment_count"],
+        }
+    return summary
+
+def _normalize_segments(segments: list[dict]) -> list[dict]:
+    normalized = []
+    for seg in segments:
+        start = float(seg.get("start", 0))
+        end = float(seg.get("end", start))
+        if end < start:
+            end = start
+
+        score = float(seg.get("sentiment_score", 0))
+        sentiment = seg.get("sentiment")
+        if sentiment not in {"positive", "negative", "neutral"}:
+            sentiment = _score_to_label(score)
+
+        normalized.append(
+            {
+                "start": start,
+                "end": end,
+                "speaker": str(seg.get("speaker", "Unknown")),
+                "text": str(seg.get("text", "")).strip(),
+                "sentiment": sentiment,
+                "sentiment_score": round(score, 3),
+            }
+        )
+    return normalized
+
+def _merge_chunk_results(results: list[dict]) -> dict:
+    merged_segments = []
+    for item in results:
+        merged_segments.extend(_normalize_segments(item.get("segments", [])))
+
+    merged_segments.sort(key=lambda s: (s["start"], s["end"]))
+    speaker_summary = _build_speaker_summary_from_segments(merged_segments)
+
+    return {
+        "segments": merged_segments,
+        "speaker_summary": speaker_summary,
+        "detected_speakers": len(speaker_summary),
+    }
+
+def _request_gpt_chunk(transcript: str, max_tokens: int, chunk_idx: int, total_chunks: int):
+    attempts = GPT_REQUEST_RETRIES + 1
+    last_exc = None
+
+    for attempt in range(1, attempts + 1):
+        try:
+            return client.chat.completions.create(
+                model="gpt-4o-mini",
+                messages=[
+                    {
+                        "role": "system",
+                        "content": (
+                            "You are a call center conversation analyst. "
+                            "You always respond with valid JSON only, no markdown."
+                        ),
+                    },
+                    {
+                        "role": "user",
+                        "content": ANALYSIS_PROMPT.format(transcript=transcript),
+                    },
+                ],
+                response_format={"type": "json_object"},
+                temperature=0,
+                max_tokens=max_tokens,
+                timeout=GPT_TIMEOUT_SECONDS,
+            )
+        except (APITimeoutError, APIConnectionError) as exc:
+            last_exc = exc
+            if attempt >= attempts:
+                break
+            wait_s = round(GPT_RETRY_BACKOFF_SECONDS * (2 ** (attempt - 1)), 1)
+            report(
+                f"Reintento GPT chunk {chunk_idx}/{total_chunks} "
+                f"({attempt}/{attempts - 1}) en {wait_s}s por timeout/conexion..."
+            )
+            time.sleep(wait_s)
+
+    raise RuntimeError(
+        f"GPT chunk {chunk_idx}/{total_chunks} falló tras {attempts} intentos "
+        f"(timeout={GPT_TIMEOUT_SECONDS}s)."
+    ) from last_exc
+
 def analysis_with_gpt4o(segments: list[dict]) -> dict:
     report("Analizando transcripción con GPT-4o...", 50)
     t0 = time.time()
-    max_tokens = min(len(segments) * 200 + 1024, 16384)
-    transcript = build_transcript_for_gpt(segments)
+    chunks = _chunk_segments(segments, GPT_CHUNK_SIZE)
+    chunk_results = []
 
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-            {"role": "system", 
-             "content": (
-                    "You are a call center conversation analyst. "
-                    "You always respond with valid JSON only, no markdown."
-                )
-            },
-            {"role": "user",
-              "content": ANALYSIS_PROMPT.format(transcript=transcript)
-            }
-        ],
-        response_format={"type": "json_object"},
-        temperature=0,
-        max_tokens=max_tokens,
-    )
+    for i, chunk in enumerate(chunks, start=1):
+        report(f"GPT chunk {i}/{len(chunks)} ({len(chunk)} segmentos)...")
+        max_tokens = min(len(chunk) * 200 + 1024, 16384)
+        transcript = build_transcript_for_gpt(chunk)
 
-    finish_reason = response.choices[0].finish_reason
-    if finish_reason == "length":
-        raise ValueError(
-            f"GPT-4o cortó la respuesta ({len(segments)} segmentos, "
-            f"max_tokens={max_tokens}). Considera usar un audio más corto."
-        )
-    
+        response = _request_gpt_chunk(transcript, max_tokens, i, len(chunks))
+
+        finish_reason = response.choices[0].finish_reason
+        if finish_reason == "length":
+            raise ValueError(
+                f"GPT-4o cortó la respuesta en chunk {i}/{len(chunks)} "
+                f"({len(chunk)} segmentos, max_tokens={max_tokens})."
+            )
+
+        chunk_results.append(json.loads(response.choices[0].message.content.strip()))
+
+    result = _merge_chunk_results(chunk_results)
     elapsed = round(time.time() - t0, 1)
-    result = json.loads(response.choices[0].message.content.strip())
-
 
     report(
         f"GPT-4o: {result.get('detected_speakers', '?')} speakers detectados, "
@@ -214,13 +327,37 @@ def save_transcript(result: dict):
         f.write("\n".join(lines))
     report(f"{OUTPUT_FILE} generado - {len(segments)} segmentos", 100)
 
-def transcribe_audio():
+def transcribe_audio() -> dict:
+    # t0 = time.time()
+    # segs= transcribe_audio_whisper()
+    # result = analysis_with_gpt4o(segs)
+    # result["segments"] = validate_sentiment(result["segments"])
+    # save_transcript(result)
+    # report(f"Tiempo total: {round(time.time() - t0, 1)}s", 100)
+
+    import time
     t0 = time.time()
-    segs= transcribe_audio_whisper()
+
+    t_whisper = time.time()
+    segs = transcribe_audio_whisper()
+    whisper_elapsed = round(time.time() - t_whisper, 2)
+
+    t_gpt = time.time()
     result = analysis_with_gpt4o(segs)
+    gpt_elapsed = round(time.time() - t_gpt, 2)
+
     result["segments"] = validate_sentiment(result["segments"])
+
+    result["_latency"] = {
+        "whisper_seconds": whisper_elapsed,
+        "gpt_seconds":     gpt_elapsed,
+        "total_seconds":   round(time.time() - t0, 2),
+    }
+    result["_raw_segments"] = segs   # segmentos originales de Whisper (sin diarizar)
     save_transcript(result)
-    report(f"Tiempo total: {round(time.time() - t0, 1)}s", 100)
+
+    report(f"Tiempo total: {result['_latency']['total_seconds']}s", 100)
+    return result
 
 
 if __name__ == "__main__":
